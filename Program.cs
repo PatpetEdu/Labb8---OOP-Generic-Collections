@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Xml;
 
 namespace Labb8___OOP_Generic_Collections
 {
@@ -6,7 +7,7 @@ namespace Labb8___OOP_Generic_Collections
     {
         static void Main(string[] args)
         {
-            //Information about our employess
+            //Information about employess
             Employee E1 = new Employee()
             {
                 Id ="101",
@@ -54,7 +55,7 @@ namespace Labb8___OOP_Generic_Collections
            
             foreach (var Employees in empStack)
             {
-                Console.WriteLine("Items left in the stack " + empStack.Count());
+                Console.WriteLine("Items left in the stack " + empStack.Count()); //count checks how many elements that are left in the stack
                 Employees.PrintInfo();
                 
             }
@@ -65,8 +66,8 @@ namespace Labb8___OOP_Generic_Collections
             {
                 Employee employee = empStack.Pop();
                 employee.PrintInfo();
-                Console.WriteLine("Items left in the stack " + empStack.Count());
-                
+                Console.WriteLine("Items left in the stack " + empStack.Count()); //count checks how many elements that are left in the stack
+
             }
             Console.WriteLine("*************************************");
            
@@ -89,16 +90,16 @@ namespace Labb8___OOP_Generic_Collections
             }
             if (empStack.Count > 1)
             {
-                empStack.Pop(); //tar bort det översta i stacken för att kunna kolla på ett annat objekt
+                empStack.Pop(); //removes the last one from the stack so we are able to get the next one from the stack using Peek again
                 Employee empPeek2 = empStack.Peek();             
                 empPeek2.PrintInfo();
                 Console.WriteLine("Items left in the stack " + empStack.Count());
                 Console.WriteLine("*************************************");
             }
-            //Inehåller
+            //using bool if E3 is false or true
             bool employeeE3 = false;
-            foreach(var employee in empStack)
-             if (employee.Id == "103")
+            foreach(var employee in empStack) 
+             if (employee.Id == "103") //checks the Id if the employee is E3
                 {
                     employeeE3 = true;
                     break;
@@ -106,16 +107,18 @@ namespace Labb8___OOP_Generic_Collections
 
             if (employeeE3)
             {
+                //output if employee 3 is in the stack
                 Console.WriteLine("Employee 3 is in the stack");
                 Console.WriteLine("*************************************");
             }
             else
             {
+                //output if employee 3 is not in the stack
                 Console.WriteLine("Employee is not in the stack");
                 Console.WriteLine("*************************************");
             }
 
-            //List for Employess 
+            //List for and attribuites Employess in list
             EmpList empList = new EmpList()
             {
                 new Employee { Id = "101", Name = "Lisa", Gender = "Female", Salary = 25500 },
@@ -132,19 +135,21 @@ namespace Labb8___OOP_Generic_Collections
             bool containsEmployeeE1 = empList.ContainsEmployee("103");
             if (containsEmployeeE1)
             {
+                //output if employee 1 exist in the list
                 Console.WriteLine("Employee1 object exists in the list");
                 Console.WriteLine("*************************************");
             }
             else
             {
+                //output if employee 1 does not exist in the list
                 Console.WriteLine("Employee1 object does not exist in the list");
                 Console.WriteLine("*************************************");
             }
-
+            //using method find to print the object from our method in emplist
             Console.WriteLine();
             empList.FindEmployee();
             Console.WriteLine("*************************************");
-
+            //usiing method finall to print the object from our method in emplist
             Console.WriteLine();
             empList.FindALlEmployees();
             

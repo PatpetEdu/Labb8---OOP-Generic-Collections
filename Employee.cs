@@ -8,19 +8,11 @@ namespace Labb8___OOP_Generic_Collections
 {
     public class Employee
     {
+        //properties for emloyees
         public string Id { get; set; }
         public string Name { get; set; }
         public string Gender { get; set; }
-        public decimal Salary { get; set; }
-
-        //public Employee(string id, string name, string gender, decimal salary)
-        //{
-        //    Id = id;
-        //    Name = name;
-        //    Gender = gender;
-        //    Salary = salary;
-        //}
-
+        public decimal Salary { get; set; }  
         public virtual void PrintInfo() //Print Method for our employees based on the properties in Employee
         {
             Console.WriteLine($"Id: {Id} " +
